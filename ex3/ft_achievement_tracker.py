@@ -38,14 +38,27 @@ if __name__ == "__main__":
     print(f"{player_2.name} : {player_2.achievements}")
     print(f"{player_3.name} : {player_3.achievements}")
     print(f"{player_4.name} : {player_4.achievements}")
-    
+
     print(f"\nAll distinct achievements : {set.union(player_1.achievements,
                                                      player_2.achievements,
                                                      player_3.achievements,
                                                      player_4.achievements)}")
-    
+
     print(f"\nCommon achievements : {set.intersection(player_1.achievements,
                                                       player_2.achievements,
                                                       player_3.achievements,
                                                       player_4.achievements)}")
-    
+
+    unique_1: set[str] = set_1.difference(set.union(set_2, set_3, set_4))
+    print(f"\nOnly {player_1.name} has : {unique_1}")
+    unique_2: set[str] = set_2.difference(set.union(set_1, set_3, set_4))
+    print(f"Only {player_2.name} has : {unique_2}")
+    unique_3: set[str] = set_3.difference(set.union(set_2, set_1, set_4))
+    print(f"Only {player_3.name} has : {unique_3}")
+    unique_4: set[str] = set_4.difference(set.union(set_2, set_3, set_1))
+    print(f"Only {player_4.name} has : {unique_4}")
+
+    unique_1 = set.union(set_2, set_3, set_4).difference(set_1)
+    print(f"\n{player_1.name} is missing {unique_1}")
+    unique_2 = set.union(set_2, set_3, set_4).difference(set_1)
+    print(f"\n{player_1.name} is missing {unique_1}")
