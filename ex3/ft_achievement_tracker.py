@@ -60,5 +60,9 @@ if __name__ == "__main__":
 
     unique_1 = set.union(set_2, set_3, set_4).difference(set_1)
     print(f"\n{player_1.name} is missing {unique_1}")
-    unique_2 = set.union(set_2, set_3, set_4).difference(set_1)
-    print(f"\n{player_1.name} is missing {unique_1}")
+    unique_2 = set.union(set_1, set_3, set_4).difference(set_2)
+    print(f"\n{player_2.name} is missing {unique_2}")
+    unique_3 = set.union(set_1, set_2, set_4).difference(set_3)
+    print(f"\n{player_3.name} is missing {unique_3}")
+    unique_4 = set.union(set_1, set_3, set_2).difference(set_4)
+    print(f"\n{player_4.name} is missing {unique_4}")
