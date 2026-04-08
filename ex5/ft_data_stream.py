@@ -26,7 +26,7 @@ if __name__ == "__main__":
     print(" === Game Data Stream Processor === \n")
 
     generator = gen_event()
-    for i in range(10):
+    for i in range(1000):
         (name, action) = next(generator)
         print(f"Event {i} : Player {name} did action {action}")
 
