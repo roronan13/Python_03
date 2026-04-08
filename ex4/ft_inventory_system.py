@@ -23,13 +23,14 @@ ft_inventory_system.py item_name:quantity item_name:quantity\n")
     for i in range(i, len(sys.argv)):
         item_and_value = sys.argv[i].split(':')
 
-        if len(item_and_value) > 2:
+        if len(item_and_value) != 2:
             print(f"Error - invalid parameter '{item_and_value[0]}'")
             continue
 
         try:
             if item_and_value[0] in inventory:
-                raise DoublonError(f"Redundant item '{item_and_value[0]}' - discarding")
+                raise DoublonError(f"Redundant item '{item_and_value[0]}' \
+- discarding")
         except DoublonError as e:
             print(f"{e}")
             continue
@@ -42,3 +43,4 @@ ft_inventory_system.py item_name:quantity item_name:quantity\n")
 
         inventory[item_and_value[0]] = item_and_value[1]
 
+    print(inventory)
