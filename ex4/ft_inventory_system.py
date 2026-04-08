@@ -65,3 +65,6 @@ ft_inventory_system.py item_name:quantity item_name:quantity\n")
     min_key: str = min(inventory, key=inventory.get)
     min_value: int = inventory[min_key]
     print(f"Item least abundant : {min_key} with quantity {min_value}")
+
+    inventory.update({"one_last_item": 10})
+    print(f"Updated inventory : {inventory}")
