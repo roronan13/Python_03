@@ -22,7 +22,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         print("No item provided. Command line must be : python3 \
 ft_inventory_system.py item_name:quantity item_name:quantity\n")
-        sys.exit
+        sys.exit()
 
     i: int = 1
     item_and_value: list[str]
@@ -51,6 +51,9 @@ ft_inventory_system.py item_name:quantity item_name:quantity\n")
 
         inventory[item_and_value[0]] = int(item_and_value[1])
 
+    if len(inventory) < 1:
+        sys.exit()
+
     print(f"Got inventory : {inventory}")
     print(f"Item list : {list(inventory.keys())}")
     total: int = sum(inventory.values())
@@ -59,10 +62,10 @@ ft_inventory_system.py item_name:quantity item_name:quantity\n")
     for key, value in inventory.items():
         print(f"Item {key} represents {get_percentage(value, total)}%")
 
-    most_key: str = max(inventory, key=inventory.get)
+    most_key: str = max(inventory, key=lambda i: inventory[i])
     most_value: int = inventory[most_key]
     print(f"\nItem most abundant : {most_key} with quantity {most_value}")
-    min_key: str = min(inventory, key=inventory.get)
+    min_key: str = min(inventory, key=lambda i: inventory[i])
     min_value: int = inventory[min_key]
     print(f"Item least abundant : {min_key} with quantity {min_value}")
 
